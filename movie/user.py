@@ -2,7 +2,7 @@ import sqlite3
 from movie.movie_library import MovieLibrary
 from movie.movie import Movie
 class User:
-    def __init__(self, _id, _username, liked=None):
+    def __init__(self, username, liked=None):
         self._id = None
         self._username = username
         self._liked_movies = liked if liked else []
