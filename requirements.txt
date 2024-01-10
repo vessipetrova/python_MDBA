@@ -1,0 +1,21 @@
+For starting the project: python_MDBA (Movie Database Application) CLI, you'll need to have Python installed. If you don’t have Python installed on your system, download it and select the Python version appropriate for your operating system. The next thing you need to do is create the project directory; You can create the directory in your integrated development environment (IDE), or you can create it on the terminal using the following command:
+
+>_mkdir python_MDBA
+This will create a new directory named python_MDBA. With the project directory created, set up a virtual environment. A virtual environment is an isolated Python environment where you can install packages for a given project without affecting the global Python installation. To create a virtual environment, you will use the virtualenv package. This package, however, does not come with the standard Python library; you have to install it. To do that, you will use the following command:
+
+>_pip install virtualenv
+Once the package has been installed, create a virtual environment in the python_MDBA project directory. You can create a virtual environment using the following command:
+
+>_virtualenv myenv
+The above command will create a virtual environment called myenv. To use the virtual environment, you need to activate it. To activate the virtual environment, use the following command on Linux or macOS:
+
+>_. myenv/bin/activate
+If you are using a Windows operating system, you can activate the environment using the following command:
+
+>_. myenv\python_MDBA\activate
+Once the virtual environment has been activated, create the Python module that will hold the CLI application. For simplicity, call it todo_cli.py. To create the module, you can use your preferred IDE and create a new file, or you could create it on the terminal on Linux or macOS using the following command:
+
+>_touch python_MDBA.py
+
+The above command will set the environment ready to start the development of the CLI application. The next step is to install the packages that will be used in the application. The package that will be used in this CLI Movie Database Application is Python Argparse. This package is used to parse the command-line arguments passed to the application. To install the package, use the following command:
+>'''pip install argparse'''
