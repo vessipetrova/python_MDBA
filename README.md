@@ -4,7 +4,7 @@ This is a project for a CLI (Command Line Interface) Application that allows you
 
 ## Installation
 Before you start this CLI App you need to run this script once in order to populate the database with the movies and generate the test data:
-'''create_db.py'''
+'''sqlite3_db/create_db.py'''
 
 ## Commands
 * command 1: **movlst** - This command will list all the movies in the database. It will also show the user's liked and favourized movies.
@@ -18,9 +18,9 @@ Before you start this CLI App you need to run this script once in order to popul
 ## Usage
 
 To start the application run the following script:
-'''main.py/run'''
+'''movie/main.py/run'''
 
 ## Contributing
 
 Bug reports and pull requests are very welcome on GitHub at:
-www.github.com/vessi_petrova/python_MDBA
+www.github.com/vessipetrova/python_MDBA

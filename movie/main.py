@@ -140,3 +140,15 @@ def movcat_command(movie_library, category):
         movie_library.get_top_movies(category)
     else:
         print(f"Category {category} not found.")
+
+# def movcat_command(movie_library, category):
+#   available categories = ["liked", "newest", "genre"]
+#      if category != "liked" or category != "newest" or category != "genre":
+#         print(f"Error.Category {category} not found.")
+#      else:
+#         print("Top 5 movies by likes:")
+#         movie_library.get_top_movies(category)
+#         print("Top 5 newest movies:")
+#         movie_library.get_top_movies(category)
+#         print("Top 5 movies by genre:")
+#         movie_library.get_top_movies(category)

@@ -1,6 +1,7 @@
 from movie.movie import Movie
 import sqlite3
 import json
+
 class MovieLibrary:
     def __init__(self, db_name="movie_library.db", table_exists="movies", counter=0):
         self._conn = sqlite3.connect(db_name)

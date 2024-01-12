@@ -1,21 +1,21 @@
 import sqlite3
 
 # connect to SQLite database (or create it if not exists)
-conn = sqlite3.connect('movie_library_db.db')
+conn = sqlite3.connect('movie_library.db')
 
 # Create a cursor object to execute SQL queries
 cursor = conn.cursor()
 # Create a table named 'movies'
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS movies (
-        movie_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        director TEXT NOT NULL,
-        release_date INTEGER NOT NULL,
-        genre TEXT,
-        user_likes INTEGER CHECK (user_likes >= 0) DEFAULT 0,
+cursor.execute('''''\n''
+    CREATE TABLE IF NOT EXISTS movies (\n''
+        movie_id INTEGER PRIMARY KEY AUTOINCREMENT,\n''
+        name TEXT NOT NULL,\n''
+        director TEXT NOT NULL,\n''
+        release_date INTEGER NOT NULL,\n''
+        genre TEXT,\n''
+        user_likes INTEGER CHECK (user_likes >= 0) DEFAULT 0,\n''
     )
-''')
+''''')
 
 # Insert sample data into the table
 movies = [
