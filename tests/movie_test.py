@@ -9,7 +9,7 @@ class Movie_test(TestCase):
     def test_arg1(self):
         args = Movie.args_tuple(None, 5500, None, None, None)
         res = Movie.main(args)
-        assert res == [args.title], 'arg1 failed'
+        assert res == [args.name], 'arg1 failed'
 
     def test_arg2(self):
         args = Movie.args_tuple(None, None, "Cats", None, None)

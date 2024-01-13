@@ -2,9 +2,9 @@ import sqlite3
 from sqlite3_db.create_db import movies
 
 class Movie:
-    def __init__(self, movie_id=0, title="", release_date=0, director="", genre="", user_likes=0):
+    def __init__(self, movie_id=0, name="", release_date=0, director="", genre="", user_likes=0):
         self._movie_id = movie_id
-        self._title = title
+        self._name = name
         self._release_date = release_date
         self._director = director
         self._genre = genre
@@ -16,12 +16,12 @@ class Movie:
         return self._movie_id
 
     @property
-    def title(self):
-        return self._title
+    def name(self):
+        return self._name
 
-    @title.setter
-    def title(self, value):
-        self._title = value
+    @name.setter
+    def name(self, value):
+        self._name = value
 
     @property
     def release_date(self):
@@ -62,18 +62,15 @@ class Movie:
 
     """ End Setters and Getters """
 
-    def __str__(self):
-        return f'{self.title} {self.movie_id}'
-
- #   def to_tuple(self):
-  #      """Convert Movie object for SQL storage"""
-   #     return self.movie_id, self._title, self._release_date, self._director, self._genre, self._user_likes
+    def __str__(self, movie_id=0, name="", release_date=0, director="", genre="", user_likes=0):
+        return f"{self.movie_id}, {self.name}, {self.release_date}, {self.director}, {self.genre}, {self.user_likes}"
 
     def args_tuple(self):
         """Convert Movie object for SQL storage"""
-        return self.movie_id, self._title, self._release_date, self._director, self._genre, self._user_likes
+        return self.movie_id, self._name, self._release_date, self._director, self._genre, self._user_likes
 
-def get_movies():
+
+def movlst_command():
     """Get all movies from the database"""
     conn = sqlite3.connect('movies.db')
     c = conn.cursor()
@@ -82,7 +79,8 @@ def get_movies():
     conn.close()
     return rows
 
-def get_movie(movie_id):
+
+def get_movie_by_id(movie_id):
     """Get a movie from the database"""
     conn = sqlite3.connect('movies.db')
     c = conn.cursor()
@@ -91,14 +89,16 @@ def get_movie(movie_id):
     conn.close()
     return rows
 
-def get_movie_by_title(title):
+
+def get_movie_by_name(name):
     """Get a movie from the database"""
     conn = sqlite3.connect('movies.db')
     c = conn.cursor()
-    c.execute("SELECT * FROM movies WHERE title=?", (title,))
+    c.execute("SELECT * FROM movies WHERE name=?", (name,))
     rows = c.fetchall()
     conn.close()
     return rows
+
 
 def get_movie_by_release_date(release_date):
     """Get a movie from the database"""
@@ -109,6 +109,7 @@ def get_movie_by_release_date(release_date):
     conn.close()
     return rows
 
+
 def get_movie_by_director(director):
     """Get a movie from the database"""
     conn = sqlite3.connect('movies.db')
@@ -117,6 +118,7 @@ def get_movie_by_director(director):
     rows = c.fetchall()
     conn.close()
     return rows
+
 
 def get_movie_by_genre(genre):
     """Get a movie from the database"""
@@ -127,6 +129,7 @@ def get_movie_by_genre(genre):
     conn.close()
     return rows
 
+
 def get_movie_by_user_likes(user_likes):
     """Get a movie from the database"""
     conn = sqlite3.connect('movies.db')
@@ -136,6 +139,7 @@ def get_movie_by_user_likes(user_likes):
     conn.close()
     return rows
 
+
 def get_movie_by_category(category):
     """Get a movie from the database"""
     conn = sqlite3.connect('movies.db')
@@ -144,6 +148,7 @@ def get_movie_by_category(category):
     rows = c.fetchall()
     conn.close()
     return rows
+
 
 def get_movie_by_query(query):
     """Get a movie from the database"""
