@@ -1,11 +1,13 @@
 import sqlite3
 from movie.movie_library import MovieLibrary
 from movie.movie import Movie
+
+
 class User:
-    def __init__(self, username, liked=None):
+    def __init__(self, username, liked_movies=None):
         self._id = None
         self._username = username
-        self._liked_movies = liked if liked else []
+        self._liked_movies = liked_movies if liked_movies else []
 
     @property
     def id(self):
@@ -38,8 +40,12 @@ class User:
                 liked_movies.append(movie)
         return liked_movies
 
+
 class Users:
-    def __init__(self, db_filename="users.db"):
+    def __init__(self, db_filename="users.db", id=[0], username="", liked_movies=[0]):
+        self._id = id
+        self._username = username
+        self._liked_movies = liked_movies
         self.connection = sqlite3.connect(db_filename)
         self.cursor = self.connection.cursor()
         self._create_table()
@@ -47,9 +53,9 @@ class Users:
     def _create_table(self):
         self.cursor.execute('''
             CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY,
-                username TEXT,
-                liked TEXT
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT NOT NULL UNIQUE,
+                liked_movies INTEGER NOT NULL
             )
         ''')
         self.connection.commit()
@@ -84,8 +90,8 @@ class Users:
             return self._create_user_object(user_data)
         return None
 
-    def __str__(self):
-        return f"User {self._id}: {self._username}, {self._liked_movies}"
+    def __str__(self, id, username, liked_movies=[]):
+        return f"User id= {self._id}, username= {self._username}, liked_movies= {self._liked_movies}"
 
     # Add other methods for retrieving user data based on different criteria
 
